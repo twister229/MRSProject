@@ -21,6 +21,24 @@ public class Product implements Serializable {
 	private Integer modelID;
 	private Integer type;
 	private String description;
+	
+	public Product() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	public Product(String productName, String customerUsername, Integer modelID, Integer type,
+			String description) {
+		super();
+		this.productName = productName;
+		this.customerUsername = customerUsername;
+		this.modelID = modelID;
+		this.type = type;
+		this.description = description;
+	}
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

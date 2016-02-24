@@ -476,5 +476,6 @@
 <script src="<c:url value="/resources/js/custom.js" ></c:url>"></script> <!-- Custom codes -->
 <script src="<c:url value="/resources/js/charts.js" ></c:url>"></script> <!-- Charts & Graphs -->
 <script type="text/javascript" src='<c:url value="/resources/js/ajaxload.js"></c:url>'></script>  <!-- load database -->
+<script type="text/javascript" src='<c:url value="/resources/js/ownJS.js"></c:url>'></script>  <!-- load database -->
 </body>
 </html>

@@ -21,6 +21,9 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="form-group">
+					<a href="CreateProduct" class="btn btn-sm btn-success">Tạo mới Sản phẩm</a>			
+				</div>
+				<div class="form-group">
 					<form action="SearchProduct">
 						<label class="col-lg-2 control-label">Tên khách hàng:</label>
 						<div class="col-lg-5">
