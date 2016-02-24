@@ -27,6 +27,10 @@ public class Symptom implements Serializable {
 		return symptomID;
 	}
 
+	public void setSymptomID(int symptomID) {
+		this.symptomID = symptomID;
+	}
+	
 	@Column(name = "SymptomName")
 	public String getSymptomName() {
 		return symptomName;

@@ -25,6 +25,10 @@ public class StaffSkill implements Serializable {
 	public int getId() {
 		return id;
 	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	@Column(name = "Username")
 	public String getUsername() {

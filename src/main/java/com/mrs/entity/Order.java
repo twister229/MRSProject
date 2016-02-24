@@ -32,6 +32,10 @@ public class Order implements Serializable {
 	public int getOrderID() {
 		return orderID;
 	}
+	
+	public void setOrderID(int orderID) {
+		this.orderID = orderID;
+	}
 
 	@Column(name = "CreateTime")
 	@Temporal(TemporalType.TIMESTAMP)

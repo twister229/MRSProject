@@ -26,6 +26,10 @@ public class EquipmentCategory implements Serializable {
 		return categoryID;
 	}
 
+	public void setCategoryID(int categoryID) {
+		this.categoryID = categoryID;
+	}
+
 	@Column(name = "CategoryName")
 	public String getCategoryName() {
 		return categoryName;

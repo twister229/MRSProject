@@ -34,6 +34,10 @@ public class Task implements Serializable {
 	public int getTaskID() {
 		return taskID;
 	}
+	
+	public void setTaskID(int taskID) {
+		this.taskID = taskID;
+	}
 
 	@Column(name = "OrderDetailID")
 	public int getOrderDetailID() {

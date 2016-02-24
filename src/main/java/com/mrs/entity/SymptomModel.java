@@ -25,6 +25,10 @@ public class SymptomModel implements Serializable {
 	public int getId() {
 		return id;
 	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	@Column(name = "ModelID")
 	public int getModelID() {

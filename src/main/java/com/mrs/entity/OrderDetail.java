@@ -28,6 +28,10 @@ public class OrderDetail implements Serializable {
 	public int getId() {
 		return id;
 	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	@Column(name = "OderID")
 	public int getOrderID() {

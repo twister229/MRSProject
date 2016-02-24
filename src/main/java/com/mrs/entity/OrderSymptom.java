@@ -26,6 +26,10 @@ public class OrderSymptom implements Serializable {
 		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	@Column(name = "OrderID")
 	public int getOrderID() {
 		return orderID;

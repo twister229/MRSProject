@@ -27,6 +27,10 @@ public class Product implements Serializable {
 	public int getProductID() {
 		return productID;
 	}
+	
+	public void setProductID(int productID) {
+		this.productID = productID;
+	}
 
 	@Column(name = "CustomerUsername")
 	public String getCustomerUsername() {

@@ -27,6 +27,10 @@ public class Service implements Serializable {
 	public int getServiceID() {
 		return serviceID;
 	}
+	
+	public void setServiceID(int serviceID) {
+		this.serviceID = serviceID;
+	}
 
 	@Column(name = "ServiceName")
 	public String getServiceName() {

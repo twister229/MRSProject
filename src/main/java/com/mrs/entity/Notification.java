@@ -27,8 +27,12 @@ public class Notification implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "NotificationID")
-	public int getNotificationId() {
+	public int getNotificationID() {
 		return notificationID;
+	}
+	
+	public void setNotificationID(int notificationID) {
+		this.notificationID = notificationID;
 	}
 
 	@Column(name = "Message")

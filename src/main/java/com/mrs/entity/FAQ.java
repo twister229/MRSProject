@@ -27,6 +27,10 @@ public class FAQ implements Serializable {
 	public int getFaqID() {
 		return faqID;
 	}
+	
+	public void setFaqID(int faqID) {
+		this.faqID = faqID;
+	}
 
 	@Column(name = "SymptomID")
 	public int getSymptomID() {

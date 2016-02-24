@@ -25,6 +25,10 @@ public class Skill implements Serializable {
 	public int getSkillID() {
 		return skillID;
 	}
+	
+	public void setSkillID(int skillID) {
+		this.skillID = skillID;
+	}
 
 	@Column(name = "SkillName")
 	public String getSkillName() {

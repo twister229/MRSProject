@@ -26,6 +26,10 @@ public class Invoice implements Serializable {
 	public int getInvoiceID() {
 		return invoiceID;
 	}
+	
+	public void setInvoiceID(int invoiceID) {
+		this.invoiceID = invoiceID;
+	}
 
 	@Column(name = "CustomerUsername")
 	public String getCustomerUsername() {

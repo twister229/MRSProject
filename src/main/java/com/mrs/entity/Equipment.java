@@ -31,6 +31,10 @@ public class Equipment implements Serializable {
 		return equipmentID;
 	}
 
+	public void setEquipmentID(int equipmentID) {
+		this.equipmentID = equipmentID;
+	}
+
 	@Column(name = "EquipmentName")
 	public String getEquipmentName() {
 		return equipmentName;
