@@ -147,7 +147,7 @@
             <ul class="dropdown-menu">
               <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
               <li><a href="#"><i class="fa fa-cogs"></i> Settings</a></li>
-              <li><a href="/MRSProject/signout"><i class="fa fa-sign-out"></i> Logout</a></li>
+              <li><a href="/MRSProject/Signout"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
           </li>
           
@@ -353,7 +353,7 @@
 
         <!--- Sidebar navigation -->
         <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
-        <c:if test="${sessionScope.USER.role == 0 }">
+        <c:if test="${sessionScope.USER.role == 0}">
         <ul id="nav">
           <!-- Main menu with font awesome icon -->
           <li <c:if test="${activeTab eq 'Dashboard'}">class="open"</c:if> ><a href="/iCook/Admin"><i class="fa fa-home"></i> Dashboard</a>
@@ -364,9 +364,9 @@
               <li><a href="#">Submenu #3</a></li>
             </ul>-->
           </li>
-          <li <c:if test="${activeTab eq 'CreatePost'}">class="open"</c:if>><a href="/iCook/CreatePost" id="postCreate"><i class="fa fa-list-alt"></i>Tạo bài viết <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+          <li <c:if test="${activeTab eq 'ManageProduct'}">class="open"</c:if>><a href="ManageProduct" id="manageProduct"><i class="fa fa-list-alt"></i>Quản lý Sản phẩm<span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
           </li>  
-          <li <c:if test="${activeTab eq 'ManagePost'}">class="open"</c:if>><a href="/iCook/ManagePost" id="postManage"><i class="fa fa-file-o"></i>Quản lý bài viết <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+          <li <c:if test="${activeTab eq 'ManageOrder'}">class="open"</c:if>><a href="ManageOrder" id="manageOrder"><i class="fa fa-file-o"></i>Quản lý Đơn hàng<span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
           </li> 
         </ul>
         </c:if>

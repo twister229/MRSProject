@@ -18,9 +18,9 @@ public class User implements Serializable {
 	private String email;
 	private String phoneNumber;
 	private String fullname;
-	private boolean isMale;
-	private int role;
-	private boolean isActive;
+	private Boolean isMale;
+	private Integer role;
+	private Boolean isActive;
 
 	@Id
 	@Column(name = "Username")
@@ -69,29 +69,29 @@ public class User implements Serializable {
 	}
 
 	@Column(name = "IsMale")
-	public boolean isMale() {
+	public Boolean isMale() {
 		return isMale;
 	}
 
-	public void setMale(boolean isMale) {
+	public void setMale(Boolean isMale) {
 		this.isMale = isMale;
 	}
 
 	@Column(name = "Role")
-	public int getRole() {
+	public Integer getRole() {
 		return role;
 	}
 
-	public void setRole(int role) {
+	public void setRole(Integer role) {
 		this.role = role;
 	}
 
 	@Column(name = "IsActive")
-	public boolean isActive() {
+	public Boolean isActive() {
 		return isActive;
 	}
 
-	public void setActive(boolean isActive) {
+	public void setActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
 

@@ -13,27 +13,28 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "order")
+@Table(name = "`order`")
 public class Order implements Serializable {
 
 	private static final long serialVersionUID = -7988799579036225137L;
 
-	private int orderID;
+	private Integer orderID;
 	private Date createTime;
-	private int productID;
+	private Integer productID;
 	private String symptom;
-	private String productModel;
-	private int invoiceID;
-	private int status;
+	private String productName;
+	private Integer invoiceID;
+	private Integer status;
+	private String customerUsername;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "OrderID")
-	public int getOrderID() {
+	public Integer getOrderID() {
 		return orderID;
 	}
 	
-	public void setOrderID(int orderID) {
+	public void setOrderID(Integer orderID) {
 		this.orderID = orderID;
 	}
 
@@ -48,11 +49,11 @@ public class Order implements Serializable {
 	}
 
 	@Column(name = "ProductID")
-	public int getProductID() {
+	public Integer getProductID() {
 		return productID;
 	}
 
-	public void setProductID(int productID) {
+	public void setProductID(Integer productID) {
 		this.productID = productID;
 	}
 
@@ -65,30 +66,39 @@ public class Order implements Serializable {
 		this.symptom = symptom;
 	}
 
-	@Column(name = "ProductModel")
-	public String getProductModel() {
-		return productModel;
+	@Column(name = "ProductName")
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setProductModel(String productModel) {
-		this.productModel = productModel;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 	@Column(name = "InvoiceID")
-	public int getInvoiceID() {
+	public Integer getInvoiceID() {
 		return invoiceID;
 	}
 
-	public void setInvoiceID(int invoiceID) {
+	public void setInvoiceID(Integer invoiceID) {
 		this.invoiceID = invoiceID;
 	}
 
 	@Column(name = "Status")
-	public int getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Integer status) {
 		this.status = status;
+	}
+	
+	@Column(name = "CustomerUsername")
+	public String getCustomerUsername() {
+		return customerUsername;
+	}
+	
+	public void setCustomerUsername(String customerUsername) {
+		this.customerUsername = customerUsername;
 	}
 }

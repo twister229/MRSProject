@@ -15,21 +15,31 @@ public class Product implements Serializable {
 
 	private static final long serialVersionUID = -7988799579036225137L;
 
-	private int productID;
+	private Integer productID;
+	private String productName;
 	private String customerUsername;
-	private int modelID;
-	private int type;
+	private Integer modelID;
+	private Integer type;
 	private String description;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ProductID")
-	public int getProductID() {
+	public Integer getProductID() {
 		return productID;
 	}
 	
-	public void setProductID(int productID) {
+	public void setProductID(Integer productID) {
 		this.productID = productID;
+	}
+	
+	@Column(name = "ProductName")
+	public String getProductName() {
+		return productName;
+	}
+	
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 	@Column(name = "CustomerUsername")
@@ -42,20 +52,20 @@ public class Product implements Serializable {
 	}
 
 	@Column(name = "ModelID")
-	public int getModelID() {
+	public Integer getModelID() {
 		return modelID;
 	}
 
-	public void setModelID(int modelID) {
+	public void setModelID(Integer modelID) {
 		this.modelID = modelID;
 	}
 
 	@Column(name = "Type")
-	public int getType() {
+	public Integer getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
 

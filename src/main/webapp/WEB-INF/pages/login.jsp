@@ -51,7 +51,7 @@
                 <div class="padd">
                   <!-- Login form -->
                   
-                  <spring:form  cssClass="form-horizontal" action="login"  commandName="user">
+                  <spring:form  cssClass="form-horizontal" action="Login"  commandName="user">
 
                     <!-- Email -->
                     <div class="form-group">

@@ -45,5 +45,10 @@ public class HibernateRepository {
 	public <T> T fetchById(Serializable id, Class<T> entityClass) {
 		return (T) sessionFactory.getCurrentSession().get(entityClass, id);
 	}
+	
+	@SuppressWarnings("unchecked")
+	public <T> List<T> fetchAllByQuery(String query, Class<T> entityClass) {
+		return sessionFactory.getCurrentSession().createQuery("FROM " + entityClass.getName() + " " + query).list();
+	}
 
 }

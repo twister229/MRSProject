@@ -21,30 +21,58 @@ public class HomeController {
 	UserService userService;
 
 	@RequestMapping(value = " * ", method = RequestMethod.GET)
-	public ModelAndView userPage(HttpSession session) {
-		if (session.getAttribute("USER") != null) {
-			return new ModelAndView("dashboard");
+	public String defaultPage() {
+		return "redirect:/Login";		
+	}
+	
+	@RequestMapping(value = "/Login", method = RequestMethod.GET)
+	public ModelAndView home(HttpSession session, Model model) {
+		String returnPage = "login";
+		User user = (User) session.getAttribute("USER");
+		if (user != null) {
+			RoleEnum role = RoleEnum.fromInt(user.getRole());
+			returnPage = getPageByRole(role, model);
+			return new ModelAndView(returnPage);
 		}
 		return new ModelAndView("login", "user", new User());
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/Login", method = RequestMethod.POST)
 	public String login(@ModelAttribute("user") User user, Model model, HttpSession session) {
+		String returnPage = "Login";
 		// get user
 		User result = userService.login(user);
-		// return login page with error when username is not existed
+		// check username and password
 		if (result == null) {
 			model.addAttribute("error", "wronguser");
-			return "login";
-		}
-		// check password
-		if (!result.getPassword().equals(user.getPassword())) {
+		} else if (!result.getPassword().equals(user.getPassword())) {
 			model.addAttribute("error", "wrongpass");
-			return "login";
+		} else {
+			session.setAttribute("USER", result);
+			RoleEnum role = RoleEnum.fromInt(result.getRole());
+			returnPage = getPageByRole(role, model);
 		}
+		return returnPage;
+	}
 
-		session.setAttribute("USER", result);
-		RoleEnum role = RoleEnum.fromInt(result.getRole());
+	@RequestMapping(value = "/Admin")
+	public String loadAdmin(HttpSession session, Model model) {
+		String returnPage = "Login";
+		User user = (User) session.getAttribute("USER");
+		if (user != null) {
+			RoleEnum role = RoleEnum.fromInt(user.getRole());
+			returnPage = getPageByRole(role, model);
+		}
+		return "redirect:/" + returnPage;
+	}
+
+	@RequestMapping(value = "/Signout")
+	public String signout(HttpSession session) {
+		session.removeAttribute("USER");
+		return "redirect:/";
+	}
+
+	private String getPageByRole(RoleEnum role, Model model) {
 		switch (role) {
 		case TECHMGR:
 			model.addAttribute("pageheader", "Technical Manager");
@@ -59,15 +87,8 @@ public class HomeController {
 			model.addAttribute("activeTab", "Dashboard");
 			return "dashboard_user";
 		default:
-			return "login";
+			return "Login";
 		}
 		return "dashboard";
-
-	}
-
-	@RequestMapping(value = "/signout")
-	public String signout(HttpSession session) {
-		session.removeAttribute("USER");
-		return "redirect:/";
 	}
 }
