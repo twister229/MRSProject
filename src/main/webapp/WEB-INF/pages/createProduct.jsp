@@ -22,14 +22,14 @@
 				<div class="widget-content">
 					<div class="padd">
 						<!-- Content goes here -->
-						<form action="CreateProduct" class="form-horizontal" role="form"
+						<form action="/MRSProject/CreateProduct" class="form-horizontal" role="form"
 							method="POST">
 							<div class="form-group">
 								<label class="col-lg-2 control-label">Khách hàng:</label>
 								<div class="col-lg-5">
 									<input type="text" class="form-control"
-										placeholder="Nhập tên khách hàng" name="txtUsername"> 
-										<!-- <input type="hidden" name="txtUsername" /> -->
+										placeholder="Nhập tên khách hàng" name="txtUsername">
+									<!-- <input type="hidden" name="txtUsername" /> -->
 								</div>
 							</div>
 							<div class="form-group">
@@ -44,10 +44,12 @@
 									</select>
 								</div>
 								<div class="col-lg-2">
-									<select class="form-control" name="ddlModelName" id="ddlModelName" onchange="changeModel()">
+									<select class="form-control" name="ddlModelName"
+										id="ddlModelName" onchange="changeModel()">
 									</select>
 								</div>
-								<input type="hidden" name="txtModelName" id="txtModelName" value="">
+								<input type="hidden" name="txtModelName" id="txtModelName"
+									value="">
 							</div>
 							<div class="form-group">
 								<label class="col-lg-2 control-label">Mô tả:</label>
@@ -58,14 +60,15 @@
 							</div>
 							<div class="form-group">
 								<div class="col-lg-offset-2 col-lg-6">
-									<input type="checkbox" name="chkOrder" value="CHECK" />
-									<label class="control-label">Tạo Đơn hàng</label>
-								</div>								
+									<input type="checkbox" name="chkOrder" value="CHECK" /> <label
+										class="control-label">Tạo Đơn hàng</label>
+								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-lg-offset-2 col-lg-6">
 									<input type="submit" class="btn btn-sm btn-primary" value="Lưu" />
-									<input type="reset" class="btn btn-sm btn-default" value="Reset" />
+									<input type="reset" class="btn btn-sm btn-default"
+										value="Reset" />
 								</div>
 							</div>
 							<div class="form-group">

@@ -167,8 +167,8 @@
         <div class="col-md-4">
           <!-- Logo. -->
           <div class="logo">
-            <h1><a href="#">i<span class="bold">Cook</span></a></h1>
-            <p class="meta">Nấu gì hôm nay</p>
+            <h1><a href="#">MRS Project</span></a></h1>
+            <p class="meta"></p>
           </div>
           <!-- Logo ends -->
         </div>
@@ -356,7 +356,7 @@
         <c:if test="${sessionScope.USER.role == 0}">
         <ul id="nav">
           <!-- Main menu with font awesome icon -->
-          <li <c:if test="${activeTab eq 'Dashboard'}">class="open"</c:if> ><a href="/iCook/Admin"><i class="fa fa-home"></i> Dashboard</a>
+          <li <c:if test="${activeTab eq 'Dashboard'}">class="open"</c:if> ><a href="/MRSProject/Admin"><i class="fa fa-home"></i> Dashboard</a>
             <!-- Sub menu markup 
             <ul>
               <li><a href="#">Submenu #1</a></li>
@@ -364,18 +364,18 @@
               <li><a href="#">Submenu #3</a></li>
             </ul>-->
           </li>
-          <li <c:if test="${activeTab eq 'ManageProduct'}">class="open"</c:if>><a href="ManageProduct" id="manageProduct"><i class="fa fa-list-alt"></i>Quản lý Sản phẩm<span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+          <li <c:if test="${activeTab eq 'ManageProduct'}">class="open"</c:if>><a href="/MRSProject/ManageProduct" id="manageProduct"><i class="fa fa-list-alt"></i>Quản lý Sản phẩm<span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
           </li>  
-          <li <c:if test="${activeTab eq 'ManageOrder'}">class="open"</c:if>><a href="ManageOrder" id="manageOrder"><i class="fa fa-file-o"></i>Quản lý Đơn hàng<span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+          <li <c:if test="${activeTab eq 'ManageOrder'}">class="open"</c:if>><a href="/MRSProject/ManageOrder" id="manageOrder"><i class="fa fa-file-o"></i>Quản lý Đơn hàng<span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
           </li> 
         </ul>
         </c:if>
         <c:if test="${sessionScope.USER.role == 1 }">
         	<ul id="nav">
 		          <!-- Main menu with font awesome icon -->
-		          <li <c:if test="${activeTab eq 'Dashboard'}">class="open"</c:if> ><a href="/iCook/Admin"><i class="fa fa-home"></i> Dashboard</a>
+		          <li <c:if test="${activeTab eq 'Dashboard'}">class="open"</c:if> ><a href="/MRSProject/Admin"><i class="fa fa-home"></i> Dashboard</a>
 		          </li>
-		          <li <c:if test="${activeTab eq 'ManagePost'}">class="open"</c:if> ><a href="/iCook/getUserPost"><i class="fa fa-home"></i> Quản lý bài viết</a>
+		          <li <c:if test="${activeTab eq 'ManagePost'}">class="open"</c:if> ><a href="/MRSProject/getUserPost"><i class="fa fa-home"></i> Quản lý bài viết</a>
 		          </li>
        		 </ul>
         </c:if>

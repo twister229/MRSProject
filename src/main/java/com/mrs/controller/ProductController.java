@@ -1,5 +1,6 @@
 package com.mrs.controller;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -96,16 +97,12 @@ public class ProductController {
 				int type = 1;
 				Product pro = new Product(modelName, username, modelID, type, description);
 				
-				productService.saveProduct(pro);
+				Serializable proID = productService.saveProduct(pro);
 				
 				if (orderValue != null) {
-					model.addAttribute("pageheader", "Tạo mới Đơn hàng");
-					model.addAttribute("activeTab", "ManageOrder");
-					returnPage = "redirect:/CreateOrder/";
+					returnPage = "redirect:/CreateOrder/" + proID;
 				} else {
-					model.addAttribute("pageheader", "Quản lý sản phẩm");
-					model.addAttribute("activeTab", "ManageProduct");
-					returnPage = "manageProduct";
+					returnPage = "redirect:/ManageProduct";
 				}
 			}
 		}

@@ -25,4 +25,8 @@ public class ProductDAOImpl implements ProductDAO {
 		return result;
 	}
 
+	public Product getProduct(int id) {
+		return repository.fetchById(id, Product.class);
+	}
+
 }

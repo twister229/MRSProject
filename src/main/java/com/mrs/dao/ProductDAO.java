@@ -8,4 +8,5 @@ import com.mrs.entity.Product;
 public interface ProductDAO {
 	public List getProductsByUsername(String username);
 	public Serializable saveProduct(Product pro);
+	public Product getProduct(int id);
 }

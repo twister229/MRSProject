@@ -1,5 +1,6 @@
 package com.mrs.service;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -22,7 +23,11 @@ public class OrderServiceImpl implements OrderService {
 		return orderDAO.getOrdersByStatus(status);
 	}
 
-	public boolean createOrder(Order order) {
+	public Serializable createOrder(Order order) {
 		return orderDAO.createOrder(order);
+	}
+
+	public Order getOrderByProduct(int proID) {
+		return orderDAO.getOrderByProduct(proID);
 	}
 }

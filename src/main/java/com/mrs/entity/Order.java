@@ -26,6 +26,26 @@ public class Order implements Serializable {
 	private Integer invoiceID;
 	private Integer status;
 	private String customerUsername;
+	
+	public Order() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	public Order(Date createTime, Integer productID, String symptom, String productName, Integer invoiceID,
+			Integer status, String customerUsername) {
+		super();
+		this.createTime = createTime;
+		this.productID = productID;
+		this.symptom = symptom;
+		this.productName = productName;
+		this.invoiceID = invoiceID;
+		this.status = status;
+		this.customerUsername = customerUsername;
+	}
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
