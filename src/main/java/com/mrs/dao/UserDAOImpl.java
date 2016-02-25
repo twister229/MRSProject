@@ -1,5 +1,7 @@
 package com.mrs.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +16,11 @@ public class UserDAOImpl implements UserDAO {
 	public User login(User user) {
 		User result = hibernateRepository.fetchById(user.getUsername(), User.class);
 		return result;
+	}
+
+	public List loadUserByRole(int role) {
+		String query = String.format("WHERE role = '%d'", role);
+		return hibernateRepository.fetchAllByQuery(query, User.class);
 	}
 	
 	

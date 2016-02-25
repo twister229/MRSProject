@@ -59,7 +59,7 @@
 			<span>Menu</span>
 		  </button>
 		  <!-- Site name for smallar screens -->
-		  <a href="index.html" class="navbar-brand hidden-lg">MacBeth</a>
+		  <a href="index.html" class="navbar-brand hidden-lg">MRSProject</a>
 		</div>
       
       
@@ -364,9 +364,11 @@
               <li><a href="#">Submenu #3</a></li>
             </ul>-->
           </li>
-          <li <c:if test="${activeTab eq 'ManageProduct'}">class="open"</c:if>><a href="/MRSProject/ManageProduct" id="manageProduct"><i class="fa fa-list-alt"></i>Quản lý Sản phẩm<span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+          <li <c:if test="${activeTab eq 'ManageProduct'}">class="open"</c:if>><a href="/MRSProject/ManageProduct" id="manageProduct"><i class="fa fa-list-alt"></i>Sản phẩm<span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
           </li>  
-          <li <c:if test="${activeTab eq 'ManageOrder'}">class="open"</c:if>><a href="/MRSProject/ManageOrder" id="manageOrder"><i class="fa fa-file-o"></i>Quản lý Đơn hàng<span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+          <li <c:if test="${activeTab eq 'ManageOrder'}">class="open"</c:if>><a href="/MRSProject/ManageOrder" id="manageOrder"><i class="fa fa-file-o"></i>Đơn hàng<span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+          </li> 
+          <li <c:if test="${activeTab eq 'ManageTask'}">class="open"</c:if>><a href="/MRSProject/ManageTask" id="manageTask"><i class="fa fa-file-o"></i>Task<span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
           </li> 
         </ul>
         </c:if>

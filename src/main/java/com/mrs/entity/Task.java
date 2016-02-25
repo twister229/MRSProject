@@ -28,6 +28,27 @@ public class Task implements Serializable {
 	private String equipmentName;
 	private int status;
 
+	public Task() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Task(int orderDetailID, Date createTime, Date deadline, Date finishTime, String technicalUsername,
+			String oldStaffUsername, String currentStaffUsername, String serviceName, String equipmentName,
+			int status) {
+		super();
+		this.orderDetailID = orderDetailID;
+		this.createTime = createTime;
+		this.deadline = deadline;
+		this.finishTime = finishTime;
+		this.technicalUsername = technicalUsername;
+		this.oldStaffUsername = oldStaffUsername;
+		this.currentStaffUsername = currentStaffUsername;
+		this.serviceName = serviceName;
+		this.equipmentName = equipmentName;
+		this.status = status;
+	}
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "TaskID")

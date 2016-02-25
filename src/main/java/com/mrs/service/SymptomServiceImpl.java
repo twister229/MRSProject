@@ -25,4 +25,8 @@ public class SymptomServiceImpl implements SymptomService {
 		return symptomDAO.getSymptomNameByID(id);
 	}
 
+	public Symptom getSymptomByID(int id) {
+		return symptomDAO.getSymptomByID(id);
+	}
+
 }

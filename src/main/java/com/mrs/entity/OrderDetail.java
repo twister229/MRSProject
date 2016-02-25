@@ -17,10 +17,25 @@ public class OrderDetail implements Serializable {
 
 	private int id;
 	private int orderID;
-	private int equipmentID;
+	private Integer equipmentID;
 	private int serviceID;
-	private double equipmentCost;
+	private Double equipmentCost;
 	private double serviceCost;
+
+	public OrderDetail() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public OrderDetail(int orderID, Integer equipmentID, int serviceID, Double equipmentCost, double serviceCost) {
+		super();
+		this.orderID = orderID;
+		this.equipmentID = equipmentID;
+		this.serviceID = serviceID;
+		this.equipmentCost = equipmentCost;
+		this.serviceCost = serviceCost;
+	}
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,7 +48,7 @@ public class OrderDetail implements Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "OderID")
+	@Column(name = "OrderID")
 	public int getOrderID() {
 		return orderID;
 	}
@@ -43,11 +58,11 @@ public class OrderDetail implements Serializable {
 	}
 
 	@Column(name = "EquipmentID")
-	public int getEquipmentID() {
+	public Integer getEquipmentID() {
 		return equipmentID;
 	}
 
-	public void setEquipmentID(int equipmentID) {
+	public void setEquipmentID(Integer equipmentID) {
 		this.equipmentID = equipmentID;
 	}
 
@@ -61,11 +76,11 @@ public class OrderDetail implements Serializable {
 	}
 
 	@Column(name = "EquipmentCost")
-	public double getEquipmentCost() {
+	public Double getEquipmentCost() {
 		return equipmentCost;
 	}
 
-	public void setEquipmentCost(double equipmentCost) {
+	public void setEquipmentCost(Double equipmentCost) {
 		this.equipmentCost = equipmentCost;
 	}
 

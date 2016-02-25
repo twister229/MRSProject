@@ -24,4 +24,8 @@ public class SymptomDAOImpl implements SymptomDAO {
 		return symp.getSymptomName();
 	}
 
+	public Symptom getSymptomByID(int id) {
+		return repository.fetchById(id, Symptom.class);
+	}
+
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Manage post</title>
+<title>Manage Task</title>
 </head>
 <body>
 	<div class="row">
@@ -13,17 +13,17 @@
 
 			<div class="widget">
 				<div class="widget-head">
-					<div class="pull-left">Danh sách Đơn hàng</div>
+					<div class="pull-left">Quản lý Task</div>
 					<div class="widget-icons pull-right">
 						<a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
 						<a href="#" class="wclose"><i class="fa fa-times"></i></a>
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<div class="form-group">
-					<a href="CreateOrder" class="btn btn-sm btn-success">Tạo Order</a>			
-				</div>
-				<c:if test="${not empty listOrder }">
+				<!-- <div class="form-group">
+					<a href="CreateOrder" class="btn btn-sm btn-success">Tạo Task</a>			
+				</div> -->
+				<c:if test="${not empty listTask }">
 					<div class="widget-content">
 						<div class="padd">
 							<div class="page-tables">
@@ -34,49 +34,49 @@
 										<thead>
 											<tr>
 												<th>STT</th>
-												<th>ID</th>
-												<th>Tên máy</th>
-												<th>Khách hàng</th>
-												<th>Lỗi</th>
+												<th>Mã đơn hàng</th>
+												<th>Dịch vụ</th>
+												<th>Thiết bị</th>
+												<th>Người thực hiện</th>
 												<th>Trạng thái</th>
 												<th>Chỉnh sửa</th>
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach items="${listOrder }" var="item"
+											<c:forEach items="${listTask }" var="item"
 												varStatus="counter">
-												<tr id="${item.orderID}" class="thisrow">
+												<tr id="${item.orderDetailID}" class="thisrow">
 													<td>${counter.count }</td>
-													<td><a href="/MRSProject/Order/${item.orderID}"
-														class="linkView">${item.orderID}</a></td>
-													<td>${item.productName}</td>
-													<td>${item.customerUsername}</td>
-													<td>${item.symptom}</td>
+													<td><a href="/MRSProject/Task/${item.orderDetailID}"
+														class="linkView">${item.orderDetailID}</a></td>
+													<td>${item.serviceName}</td>
+													<td>${item.equipmentName}</td>
+													<td>${item.currentStaffUsername}</td>
 													<td class="statustd">
 														<c:choose>
 															<c:when test="${item.status eq 0}">
-														       Chưa xử lý
+														       Chưa giao task
 														    </c:when>
 															<c:when test="${item.status eq 1}">
-														       Chờ khách hàng
+														       Đang mở
 														    </c:when>
 														    <c:when test="${item.status eq 2}">
-														       Đang sửa chữa
+														       Đang thực hiện
 														    </c:when>
 														    <c:when test="${item.status eq 3}">
-														       Đã hủy
+														       Đã làm xong
 														    </c:when>
 														    <c:when test="${item.status eq 4}">
-														       Hoàn thành
+														       Không thể sửa
 														    </c:when>
 															<c:otherwise>
-														        Đơn hàng lỗi
+														        Hoàn thành
 														    </c:otherwise>
 														</c:choose></td>
 													<td width="80px">
 														<div class="btn-group1">
 															<a class="btn btn-xs btn-warning"
-																href="/MRSProject/EditOrder/${item.orderID}">
+																href="/MRSProject/EditTask/${item.taskID}">
 																<i class="fa fa-pencil"></i>
 															</a>
 														</div>

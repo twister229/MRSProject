@@ -32,4 +32,19 @@ public class OrderDAOImpl implements OrderDAO {
 		}
 		return null;
 	}
+
+	public int getProductIDByOrderID(int orderID) {
+		Order order = repository.fetchById(orderID, Order.class);
+		return order.getProductID();
+	}
+
+	public Order updateStatus(OrderStatusEnum status, int orderID) {
+		Order order = repository.fetchById(orderID, Order.class);
+		order.setStatus(status.getValue());
+		return repository.update(order);
+	}
+
+	public List loadOrder() {
+		return repository.fetchAll(Order.class);
+	}
 }

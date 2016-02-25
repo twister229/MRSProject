@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mrs.entity.Order;
+import com.mrs.entity.OrderSymptom;
 import com.mrs.entity.Product;
 import com.mrs.entity.Symptom;
 import com.mrs.entity.User;
@@ -33,7 +34,7 @@ public class OrderController {
 	private ProductService productService;
 	@Autowired
 	private SymptomService symptomService;
-	
+
 	@RequestMapping(value = "/ManageOrder")
 	public String manageProduct(HttpSession session, Model model) {
 		String returnPage = "redirect:/Login";
@@ -41,7 +42,7 @@ public class OrderController {
 		if (user != null) {
 			RoleEnum role = RoleEnum.fromInt(user.getRole());
 			if (role == RoleEnum.TECHMGR) {
-				List result = orderService.getOrdersByStatus(OrderStatusEnum.PENDING);
+				List result = orderService.loadOrder();
 				model.addAttribute("listOrder", result);
 				model.addAttribute("pageheader", "Quản lý Đơn hàng");
 				model.addAttribute("activeTab", "ManageOrder");
@@ -50,7 +51,7 @@ public class OrderController {
 		}
 		return returnPage;
 	}
-	
+
 	@RequestMapping(value = "/CreateOrder", method = RequestMethod.GET)
 	public String createOrder(HttpSession session, Model model) {
 		String returnPage = "redirect:/Login";
@@ -60,7 +61,7 @@ public class OrderController {
 			if (role == RoleEnum.TECHMGR) {
 				List<Symptom> listSymptom = symptomService.getListSymptomName();
 				model.addAttribute("listSymptom", listSymptom);
-				
+
 				model.addAttribute("pageheader", "Tạo mới Đơn hàng");
 				model.addAttribute("activeTab", "ManageOrder");
 				returnPage = "createOrder";
@@ -68,7 +69,7 @@ public class OrderController {
 		}
 		return returnPage;
 	}
-	
+
 	@RequestMapping(value = "/CreateOrder/{proID}", method = RequestMethod.GET)
 	public String createOrderWithProduct(HttpSession session, Model model, @PathVariable("proID") int proID) {
 		String returnPage = "redirect:/Login";
@@ -76,13 +77,13 @@ public class OrderController {
 		if (user != null) {
 			RoleEnum role = RoleEnum.fromInt(user.getRole());
 			if (role == RoleEnum.TECHMGR) {
-				
+
 				Product pro = productService.getProduct(proID);
 				model.addAttribute("pro", pro);
-				
+
 				List<Symptom> listSymptom = symptomService.getListSymptomName();
 				model.addAttribute("listSymptom", listSymptom);
-				
+
 				model.addAttribute("pageheader", "Tạo mới Đơn hàng");
 				model.addAttribute("activeTab", "ManageOrder");
 				returnPage = "createOrder";
@@ -90,7 +91,7 @@ public class OrderController {
 		}
 		return returnPage;
 	}
-	
+
 	@RequestMapping(value = "/CreateOrder", method = RequestMethod.POST)
 	public String createOrder(HttpSession session, Model model, @RequestParam("txtProductID") int proID,
 			@RequestParam("txtProductName") String proName, @RequestParam("txtUsername") String username,
@@ -110,9 +111,15 @@ public class OrderController {
 					}
 					listName += name;
 				}
-				
+
 				Order order = new Order(createTime, proID, listName, proName, null, 0, username);
 				Serializable orderID = orderService.createOrder(order);
+
+				for (int i = 0; i < listID.length; i++) {
+					OrderSymptom orderSymp = new OrderSymptom(Integer.parseInt(orderID.toString()), 
+																Integer.parseInt(listID[i]));
+					orderService.createOrderSymptom(orderSymp);
+				}
 				System.out.println("Create Order Successfully: " + orderID);
 				returnPage = "redirect:/ManageOrder";
 			}

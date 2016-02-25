@@ -77,4 +77,18 @@ $(document).ready(function() {
 			return false;
 		}
 	});
+	
+	$("#staffUsername").autocomplete({
+		minLength : 0,
+		source : function(request, response) {
+			response($.ui.autocomplete.filter(items, extractLast(request.term)));
+		},
+		focus : function() {
+			return false;
+		},
+		select : function(event, ui) {
+			this.value = ui.item.value
+			return false;
+		}
+	});
 });

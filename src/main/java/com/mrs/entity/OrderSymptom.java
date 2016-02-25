@@ -19,6 +19,16 @@ public class OrderSymptom implements Serializable {
 	private int orderID;
 	private int symptomID;
 
+	public OrderSymptom() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public OrderSymptom(int orderID, int symptomID) {
+		super();
+		this.orderID = orderID;
+		this.symptomID = symptomID;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID")

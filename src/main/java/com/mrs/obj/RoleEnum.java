@@ -1,7 +1,17 @@
 package com.mrs.obj;
 
 public enum RoleEnum {
-	TECHMGR, STAFF, CUSTOMER;
+	TECHMGR(0), STAFF(1), CUSTOMER(2);
+	
+	private int value;
+	
+	private RoleEnum(int value) {
+		this.value = value;
+	}
+	
+	public int getValue() {
+		return this.value;
+	}
 	
 	public static RoleEnum fromInt(int role) {
         switch(role) {
